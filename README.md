@@ -4,7 +4,8 @@ This repository hosts implementations for the "From Wheels to AI: Advanced Drivi
 
 # Dynamic Signals
 We proposed to use some informative dynamic signals to detect the maneuver. 
-![](Src/Feature_Vector_initial.csv)
+The dataset used in this project can be found in the `Src/Feature_Vector_initial.csv` file.
+
 
 # Steering Wheel Angle Detection
 The 
