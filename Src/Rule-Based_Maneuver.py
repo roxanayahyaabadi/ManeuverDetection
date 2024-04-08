@@ -1,29 +1,40 @@
 import pandas as pd
 import numpy as np
-from scipy.spatial.transform import Rotation as R
 
-# Load the odometry and comprehensive data
-odometry_file = '/home/nrc/Documents/Maneuver/Modified code/Comprehensive4/odometry_data.csv'
-comprehensive_file = '/home/nrc/Documents/Maneuver/Modified code/Comprehensive4/comprehensive_data.csv'
+# Load the CSV files
+comprehensive_data_path = '/media/nrc/tr_8tb/London Dataset/driver_21_processed/comprehensive_data.csv'
+angular_velocity_data_path = '/media/nrc/tr_8tb/London Dataset/driver_21_processed/angular_velocity_data.csv'
 
-df_odometry = pd.read_csv(odometry_file)
-df_comprehensive = pd.read_csv(comprehensive_file)
+comprehensive_df = pd.read_csv(comprehensive_data_path)
+angular_velocity_df = pd.read_csv(angular_velocity_data_path)
 
-# Process odometry data to get Euler angles and yaw gradient
-euler_angles = df_odometry.apply(lambda row: R.from_quat([row['orientation_x'], row['orientation_y'], row['orientation_z'], row['orientation_w']]).as_euler('xyz', degrees=True), axis=1)
-df_odometry['yaw_gradient'] = np.gradient([yaw for _, _, yaw in euler_angles])
+# Ensure the dataframes are aligned by index
+assert len(comprehensive_df) == len(angular_velocity_df), "DataFrame lengths do not match."
 
-# Classify maneuver type
-def classify_maneuver(index, window_size=10):
-    if index + window_size > len(df_odometry):
-        return "Straight"
-    gradients = df_odometry['yaw_gradient'][index:index+window_size]
-    if np.any(np.abs(gradients) > 1.2):
-        return "Turn Left" if np.mean(gradients) > 0 else "Turn Right"
+# Define the new maneuver classification logic
+def classify_maneuver(angular_velocities):
+    if np.any(np.abs(angular_velocities) > 0.15326725726481527):
+        if np.mean(angular_velocities) < 0:
+            return "Turn Right"
+        else:
+            return "Turn Left"
     return "Straight"
 
-# Update the maneuver_type column
-df_comprehensive['maneuver_type'] = [classify_maneuver(i) for i in df_comprehensive.index]
+# Apply the classification logic using a rolling window
+window_size = 20
+new_maneuver_types = []
 
-# Save the updated DataFrame
-df_comprehensive.to_csv(comprehensive_file, index=False)
+for i in range(len(angular_velocity_df)):
+    window_start = max(i - window_size + 1, 0)
+    window = angular_velocity_df['angular_velocity_z'][window_start:i+1]
+    maneuver_type = classify_maneuver(window)
+    new_maneuver_types.append(maneuver_type)
+
+# Update the comprehensive DataFrame with the new maneuver types
+comprehensive_df['maneuver_type'] = new_maneuver_types
+
+# Save the updated DataFrame to a new CSV file
+updated_comprehensive_data_path = '/media/nrc/tr_8tb/London Dataset/driver_21_processed/comprehensive_data_updated.csv'
+comprehensive_df.to_csv(updated_comprehensive_data_path, index=False)
+
+updated_comprehensive_data_path
