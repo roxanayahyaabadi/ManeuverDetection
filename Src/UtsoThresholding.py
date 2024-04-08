@@ -4,8 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Re-load the dataset (assuming the path needs to be re-defined)
-# df_velocity = pd.read_csv('/media/nrc/tr_8tb/AllBagFiles/AllBagFilesBlurred_driver_15/angular_velocity_data.csv')
-velocity_angles_df = pd.read_csv('/media/nrc/tr_8tb/London Dataset/driver_20_processed/angular_velocity_data.csv')
+
+velocity_angles_df = pd.read_csv('.../angular_velocity_data.csv')
 
 # Define the custom Otsu's method function
 def otsu_threshold_method(data):
