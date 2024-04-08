@@ -6,9 +6,12 @@ This repository hosts implementations for the "From Wheels to AI: Advanced Drivi
 We proposed to use some informative dynamic signals to detect the maneuver. 
 The dataset used in this project can be found in the `Src/Feature_Vector_initial.csv` file.
 
+# Rule-based Maneuver Detection
+In 
+
 
 # Steering Wheel Angle Detection
-The 
+The `Src/Steerinwhellangledetection.csv` file shows how to detect the relative Steering Wheel angle using decoding the ArUco marker stuck on the steering wheel.
 ![](Media/steering_video.gif)
 
 
