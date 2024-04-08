@@ -34,7 +34,7 @@ for i in range(len(angular_velocity_df)):
 comprehensive_df['maneuver_type'] = new_maneuver_types
 
 # Save the updated DataFrame to a new CSV file
-updated_comprehensive_data_path = '.../Maneuver.csv'
-comprehensive_df.to_csv(updated_comprehensive_data_path, index=False)
+updated_maneuver_data_path = '.../Maneuver.csv'
+comprehensive_df.to_csv(updated_maneuver_data_path, index=False)
 
-updated_comprehensive_data_path
+updated_maneuver_data_path
