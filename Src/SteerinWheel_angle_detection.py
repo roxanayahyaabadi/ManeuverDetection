@@ -8,6 +8,8 @@ from cv2 import aruco
 # Define paths and parameters
 frames_directory = ".../steering_images"
 output_csv_path = ".../steering_angles.csv"
+
+# Camera calibration matrix
 camera_matrix = np.array([[532.772603, 0.000000, 315.129715],
                           [0.000000, 530.554625, 231.588145],
                           [0.000000, 0.000000, 1.000000]])
