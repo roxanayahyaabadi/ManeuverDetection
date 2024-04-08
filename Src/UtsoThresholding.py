@@ -4,7 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Re-load the dataset (assuming the path needs to be re-defined)
-velocity_angles_df = pd.read_csv('.../angular_velocity_data.csv')
+# df_velocity = pd.read_csv('/media/nrc/tr_8tb/AllBagFiles/AllBagFilesBlurred_driver_15/angular_velocity_data.csv')
+velocity_angles_df = pd.read_csv('/media/nrc/tr_8tb/London Dataset/driver_20_processed/angular_velocity_data.csv')
 
 # Define the custom Otsu's method function
 def otsu_threshold_method(data):
@@ -20,7 +21,7 @@ def otsu_threshold_method(data):
     optimal_threshold = bin_centers[0]
     
     for i, bin_center in enumerate(bin_centers):
-        # Divide data into two groups: below and above the current threshold
+        # Divide data into two groups: below and above current threshold
         weight1 = np.sum(bin_counts[:i+1])
         weight2 = np.sum(bin_counts[i+1:])
         mean1 = np.sum(bin_centers[:i+1] * bin_counts[:i+1]) / weight1 if weight1 > 0 else 0
@@ -61,8 +62,8 @@ def otsu_threshold_method(data):
     plt.rc('font', size=20) 
     # Plot the histogram and the optimal threshold
     plt.figure(figsize=(10, 6))
-    plt.hist(clean_data, bins=256, alpha=0.7, label='Angular Velocity Z')
-    plt.axvline(optimal_threshold, color='r', linestyle='dashed', linewidth=3, label='Optimal Threshold')
+    plt.hist(clean_data, bins=256, alpha=0.8, label='Angular Velocity Z')
+    plt.axvline(optimal_threshold, color='r', linestyle='dashed', linewidth=4, label='Optimal Threshold')
     plt.title('Histogram of Angular Velocity Z with Optimal Threshold')
     plt.xlabel('Angular Velocity Z (rad/s)')
     plt.ylabel('Frequency')
