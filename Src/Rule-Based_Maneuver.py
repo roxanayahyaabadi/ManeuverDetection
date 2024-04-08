@@ -12,8 +12,11 @@ angular_velocity_df = pd.read_csv(angular_velocity_data_path)
 assert len(comprehensive_df) == len(angular_velocity_df), "DataFrame lengths do not match."
 
 # Define the new maneuver classification logic
+# Threshold from UtsoThresholding.py
+Threshold = 0.15326725726481527
+
 def classify_maneuver(angular_velocities):
-    if np.any(np.abs(angular_velocities) > 0.15326725726481527):
+    if np.any(np.abs(angular_velocities) > Threshold):
         if np.mean(angular_velocities) < 0:
             return "Turn Right"
         else:
