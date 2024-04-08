@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 
 # Load the CSV files
-comprehensive_data_path = '/media/nrc/tr_8tb/London Dataset/driver_21_processed/comprehensive_data.csv'
-angular_velocity_data_path = '/media/nrc/tr_8tb/London Dataset/driver_21_processed/angular_velocity_data.csv'
+comprehensive_data_path = '.../Maneuver.csv'
+angular_velocity_data_path = '.../angular_velocity_data.csv'
 
 comprehensive_df = pd.read_csv(comprehensive_data_path)
 angular_velocity_df = pd.read_csv(angular_velocity_data_path)
@@ -34,7 +34,7 @@ for i in range(len(angular_velocity_df)):
 comprehensive_df['maneuver_type'] = new_maneuver_types
 
 # Save the updated DataFrame to a new CSV file
-updated_comprehensive_data_path = '/media/nrc/tr_8tb/London Dataset/driver_21_processed/comprehensive_data_updated.csv'
+updated_comprehensive_data_path = '.../Maneuver.csv'
 comprehensive_df.to_csv(updated_comprehensive_data_path, index=False)
 
 updated_comprehensive_data_path
