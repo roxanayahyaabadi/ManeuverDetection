@@ -10,7 +10,7 @@ We proposed to use some informative dynamic signals to detect the maneuver.
 The dataset used in this project can be found in the `Src/Feature_Vector_initial.csv` file.
 
 # Rule-based Maneuver Detection
-In 
+In this approach, we explore various vehicle signals alongside the steering wheel's position, which is derived from images of the steering wheel. Our investigation identifies the "Angular Velocity Z component" as the most informative feature.  
 
 
 # Steering Wheel Angle Detection
