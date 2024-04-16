@@ -14,7 +14,7 @@ The dataset used in this project can be found in the `Src/Feature_Vector_initial
 
 # Rule-based Maneuver Detection
 
-In this approach, we explore various vehicle signals alongside the steering wheel's position, which is derived from images of the steering wheel. Our investigation identifies the "Angular Velocity Z component" as the most informative feature. 'Src/UtsoThresholding.py' shows how to apply Utso's thresholding on the angular velocity Z component to segment the maneuvers.  
+In this approach, we explore various vehicle signals alongside the steering wheel's position, which is derived from images of the steering wheel. Our investigation identifies the "Angular Velocity Z component" as the most informative feature. `Src/UtsoThresholding.py` shows how to apply Utso's thresholding on the angular velocity Z component to segment the maneuvers.  
 
 ![](Media/Utso.png)
 
