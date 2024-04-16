@@ -18,6 +18,10 @@ In this approach, we explore various vehicle signals alongside the steering whee
 
 ![](Media/Utso.png)
 
+# Acrive Learning-based Maneuver Detection
+
+In the second approach, due to the limitations of the rule-based method in handling five maneuvers while focusing on only one feature, which is insufficient for lane-changing maneuvers, we propose a novel approach based on "Active Learning" that leverages ML as its core building block.  Here we proposed a methodology that can handle a huge number of samples by keeping the human in the loop as the oracle while the majority of samples are labeled by the Machine learning model iteratively. 
+
 
 # Steering Wheel Angle Detection
 
