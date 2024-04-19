@@ -31,6 +31,11 @@ The `Src/Steerinwhellangledetection.csv` file shows how to detect the relative S
 
 ![](Media/steering_video.gif)
 
+# Usage
+
+-[] Find `Feature_initial.csv` file that includes 16 features of 58,936 samples (three drivers). 
+-[] Apply `` 
+
 
 
 
