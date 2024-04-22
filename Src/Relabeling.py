@@ -12,8 +12,7 @@ ground_truth_path = '.../Ground_truth.csv'
 ground_truth = pd.read_csv(ground_truth_path)
 
 # Load the predictions data
-# predictions_path = '.../all_samples_with_final_labels.csv'  # Update with the actual path
-predictions_path = '.../all_samples_with_final_labels.csv'
+predictions_path = '.../all_samples_with_final_labels.csv' # Update with the actual path
 predictions = pd.read_csv(predictions_path)
 
 # Merge the ground truth and predictions based on frame_id
@@ -39,6 +38,51 @@ print("F1 Score:", f1)
 print("Recall:", recall)
 print("Precision:", precision)
 print("Confusion Matrix:\n", conf_matrix)
+
+# True Positives for each class
+TP = np.diag(conf_matrix)
+
+# False Positives for each class
+FP = np.sum(conf_matrix, axis=0) - TP
+
+# False Negatives for each class
+FN = np.sum(conf_matrix, axis=1) - TP
+
+# Total population for each class
+Total_population = np.sum(conf_matrix, axis=1)
+
+# Precision for each class
+Precision_per_class = TP / (TP + FP)
+Precision_per_class = np.nan_to_num(Precision_per_class)
+
+# Recall for each class
+Recall_per_class = TP / (TP + FN)
+Recall_per_class = np.nan_to_num(Recall_per_class)
+
+# F1 Score for each class
+F1_per_class = 2 * (Precision_per_class * Recall_per_class) / (Precision_per_class + Recall_per_class)
+F1_per_class = np.nan_to_num(F1_per_class)
+
+# Accuracy for each class
+Accuracy_per_class = TP / Total_population
+
+# Macro Precision
+macro_precision = np.mean(Precision_per_class)
+
+# Macro Recall
+macro_recall = np.mean(Recall_per_class)
+
+# Macro F1 Score
+macro_f1_score = np.mean(F1_per_class)
+
+# Macro Accuracy
+macro_accuracy = np.mean(Accuracy_per_class)
+
+print(f"Macro Precision: {macro_precision:.4f}")
+print(f"Macro Recall: {macro_recall:.4f}")
+print(f"Macro F1 Score: {macro_f1_score:.4f}")
+print(f"Macro Accuracy: {macro_accuracy:.4f}")
+
 
 
 # Define the classes and confusion matrix
