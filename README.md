@@ -54,7 +54,7 @@ Follow these steps to utilize the machine learning models and active learning st
   - This script computes the Confusion Matrix and both Micro and Macro performance metrics.
   - Following the evaluation, the samples selected by the previous script are labeled using ground truth data provided by an Oracle.
 
-Ensure all scripts are executed in the order listed above to maintain the integrity of the data flow and accuracy of the model evaluations.
+The steps outlined above should be repeated until the desired accuracy is achieved.
 
 
 
