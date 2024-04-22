@@ -8,12 +8,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load the ground truth data
-ground_truth_path = 'C:/Users/roxan/OneDrive - The University of Western Ontario/ITSC/driver_19/Ground_truth.csv'
+ground_truth_path = '.../Ground_truth.csv'
 ground_truth = pd.read_csv(ground_truth_path)
 
 # Load the predictions data
-# predictions_path = 'C:/Users/roxan/OneDrive - The University of Western Ontario/ITSC/Code/Windowing/driver_17/Third_iteration/all_samples_with_final_labels.csv'  # Update with the actual path
-predictions_path = 'C:/Users/roxan/OneDrive - The University of Western Ontario/ITSC/driver_19/Weighted/Fourth/all_samples_with_final_labels.csv'
+# predictions_path = '.../all_samples_with_final_labels.csv'  # Update with the actual path
+predictions_path = '.../all_samples_with_final_labels.csv'
 predictions = pd.read_csv(predictions_path)
 
 # Merge the ground truth and predictions based on frame_id
@@ -65,15 +65,14 @@ plt.xticks(rotation=15)
 plt.yticks(rotation=45)
 
 # Adding heatmap decorations
-# plt.title("Confusion Matrix Heatmap for RF-Second iteration (Percentages)")
+plt.title("Confusion Matrix Heatmap for RF-Second iteration (Percentages)")
 plt.ylabel("True Label")
 plt.xlabel("Predicted Label")
 plt.show()
 
-
-
-feature_vector_path = 'C:/Users/roxan/OneDrive - The University of Western Ontario/ITSC/driver_19/Weighted/Fourth/feature_vector_updated_iter4.csv'
-low_confidence_path = 'C:/Users/roxan/OneDrive - The University of Western Ontario/ITSC/driver_19/Weighted/Third/low_confidence_samples_with_ground_truth.csv'
+#Relabeling the samples with the lowest confidence score
+feature_vector_path = '.../feature_vector_updated_iter1.csv'
+low_confidence_path = '.../low_confidence_samples_with_ground_truth.csv'
 
 feature_vector_df = pd.read_csv(feature_vector_path)
 low_confidence_df = pd.read_csv(low_confidence_path)
