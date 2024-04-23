@@ -37,20 +37,20 @@ The `Src/Steerinwhellangledetection.csv` file shows how to detect the relative S
 Follow these steps to utilize the machine learning models and active learning strategies incorporated in this project:
 
 - [ ] **Prepare Initial Data**
-  - Locate the `Feature_Vector_initial.csv` file, which contains 16 features for 58,936 samples across three drivers. This dataset includes annotations for 10% of the data initially.
+  - Locate the `Src/Feature_Vector_initial.csv` file, which contains 16 features for 58,936 samples across three drivers. This dataset includes annotations for 10% of the data initially.
 
 - [ ] **Train and Evaluate Models**
   - Execute one of the following scripts to train the machine learning model on the annotated dataset and evaluate it on the test dataset (unlabeled data):
-    - `XGBoost.py`
-    - `Random Forest.py`
-    - `MLP.py`
+    - `Src/XGBoost.py`
+    - `Src/Random Forest.py`
+    - `Src/MLP.py`
   - These scripts also calculate the threshold for low confidence scores. Samples with the lowest confidence, along with all test samples and their confidence scores, are saved for further processing.
 
 - [ ] **Apply Active Learning Strategy**
-  - Run `AL Strategy.py` to implement the Active Learning Strategy. This script selects 3000 samples with the lowest confidence scores from the unlabeled set for relabeling, adhering to our specified budget.
+  - Run `Src/AL Strategy.py` to implement the Active Learning Strategy. This script selects 3000 samples with the lowest confidence scores from the unlabeled set for relabeling, adhering to our specified budget.
 
 - [ ] **Relabel and Recalculate Metrics**
-  - Use `Relabeling.py` to calculate the performance of the model by comparing predicted labels with the actual labels found in `Ground_truth.csv`.
+  - Use `Src/Relabeling.py` to calculate the performance of the model by comparing predicted labels with the actual labels found in `Src/Ground_truth.csv`.
   - This script computes the Confusion Matrix and both Micro and Macro performance metrics.
   - Following the evaluation, the samples selected by the previous script are labeled using ground truth data provided by an Oracle.
 
