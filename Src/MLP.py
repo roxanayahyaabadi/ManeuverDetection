@@ -11,7 +11,7 @@ def apply_majority_voting_windowing(series, window_size=10):
     return smoothed.astype(int)
 
 # Load the CSV file
-file_path = 'C:/Users/roxan/OneDrive - The University of Western Ontario/ITSC/driver_20/MLP/Fourth/feature_vector_iter4.csv'
+file_path = '.../feature_vector_iter1.csv'
 data = pd.read_csv(file_path)
 
 # Preprocessing
@@ -89,8 +89,8 @@ combined_data['Final_Maneuver_Type'] = combined_data.apply(
 
 
 ## Save CSV files
-# output_folder = 'C:/Users/roxan/OneDrive - The University of Western Ontario/ITSC/Code/Windowing/driver_17/Third_iteration/'
-output_folder = 'C:/Users/roxan/OneDrive - The University of Western Ontario/ITSC/driver_20/MLP/Fourth/'
+# output_folder = '.../First_iteration/'
+output_folder = '.../MLP/First/'
 
 unlabeled_data.to_csv(f'{output_folder}test_samples_with_probabilities.csv', index=False)
 low_confidence_samples.to_csv(f'{output_folder}low_confidence_samples.csv', index=False)
