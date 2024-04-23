@@ -6,8 +6,8 @@ import re
 from cv2 import aruco
 
 # Define paths and parameters
-frames_directory = "/media/nrc/tr_8tb/London Dataset/driver_23_processed/steering_images"
-output_csv_path = "/media/nrc/tr_8tb/London Dataset/driver_23_processed/steering_angles.csv"
+frames_directory = ".../steering_images"
+output_csv_path = ".../steering_angles.csv"
 camera_matrix = np.array([[532.772603, 0.000000, 315.129715],
                           [0.000000, 530.554625, 231.588145],
                           [0.000000, 0.000000, 1.000000]])
