@@ -30,7 +30,7 @@ In the second approach, due to the limitations of the rule-based method in handl
 
 The `Src/SteeringwheelDetection.csv` file shows how to detect the relative Steering Wheel angle using decoding the ArUco marker stuck on the steering wheel.
 
-![](Media/steering_video.gif)
+![](Media/steering.gif)
 
 # Usage
 
