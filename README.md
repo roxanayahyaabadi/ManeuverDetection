@@ -28,7 +28,7 @@ In the second approach, due to the limitations of the rule-based method in handl
 
 # Steering Wheel Angle Detection
 
-The `Src/SteeringwheelDetection.csv` file shows how to detect the relative Steering Wheel angle using decoding the ArUco marker stuck on the steering wheel.
+The `Src/SteeringwheelDetection.csv` file shows how to detect the relative Steering Wheel angle using decoding the ArUco marker stuck on the steering wheel. To estimate the steering wheel's rotation angle, an ArUco marker attached to the wheel is monitored through a sequence of images. By using calibrated camera parameters, the 3D pose of the marker is determined, and rotation vectors are converted into yaw angles to assess the wheel’s orientation. Changes in yaw angles between consecutive frames are used to calculate the cumulative rotation from the starting position. This process also includes meticulous tracking of each frame's yaw angle and the marker's visibility status. If the marker is obscured by a hand, the rotation angle is interpolated using the data from frames before and after the obstruction.
 
 ![](Media/steering.gif)
 
