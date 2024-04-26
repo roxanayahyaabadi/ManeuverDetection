@@ -56,6 +56,8 @@ Follow these steps to utilize the machine learning models and active learning st
 
 The steps outlined above should be repeated until the desired accuracy is achieved.
 
+# ACKNOWLEDGMENT
 
+This project was supported by collaborative research funding from the National Research Council Canada’s Artificial Intelligence for Logistics (AI4L) program.
 
 
